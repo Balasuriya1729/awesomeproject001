@@ -1,39 +1,20 @@
 
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import Screen1 from "./pages/Screen1";
+import Screen2 from "./pages/Screen2";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 function App() {
-  return <View style={{
-    flex:1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 20
-  }}>
-    <Text style={{
-      fontSize: 20,
-      textAlign: 'center',
-      color: 'tomato'
-    }}>
-      This is a Second Screen From Different App
-      And it Worked 🎉
-    </Text>
-  </View>
+  return <NavigationContainer>
+      <Stack.Navigator initialRouteName='Screen1'>
+        <Stack.Screen name="Screen1" component={Screen1} />
+        <Stack.Screen name="Screen2" component={Screen2} />
+      </Stack.Navigator>
+  </NavigationContainer>
 }
 
 export default App;
