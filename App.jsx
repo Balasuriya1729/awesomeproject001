@@ -3,10 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import Screen1 from "./pages/Screen1";
 import Screen2 from "./pages/Screen2";
+import 'react-native-gesture-handler';
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 function App() {
   return <NavigationContainer>
