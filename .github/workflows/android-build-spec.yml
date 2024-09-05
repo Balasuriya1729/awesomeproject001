@@ -33,6 +33,18 @@ jobs:
             yarn install 
       
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: |
+            cd android
+            chmod +x gradlew
+            
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+            cd android
+            ./gradlew build
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.2.1-node20
+      with:
+        name: "android_build"
+        path: ./android/app/build/outputs/apk/release/app-release.apk
+        retention-days: 1
